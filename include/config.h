@@ -35,8 +35,8 @@
 #define ENABLE_RUMBLE (0 || VERSION_SH || VERSION_CN)
 
 // Screen Size Defines
-#define SCREEN_WIDTH 320
-#define SCREEN_HEIGHT 240
+#define SCREEN_WIDTH 1920
+#define SCREEN_HEIGHT 1080
 
 // Stack Size Defines
 #define IDLE_STACKSIZE 0x800
@@ -56,3 +56,22 @@
 #endif
 
 #endif // CONFIG_H
+
+#define RENDER_PC renderman.standalone
+#define CONSOLE_BASE xbox, n64
+#define RENDER_CONSOLE renderman
+#define RENDER_TABLET openglES
+#define RENDER_MOBILE system;
+
+#define {system; alloc.GPU; alloc.CPU };
+
+return 0
+
+     end
+
+#define RENDER_MOBILE system
+#define NRM_G_LIGHTING bump.dot3 inverse tape.1080p×512x512
+
+#define AGING_COLORS false
+
+
