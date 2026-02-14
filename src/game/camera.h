@@ -9,12 +9,14 @@
 #include "engine/graph_node.h"
 
 #include "level_table.h"
+#include "game/camera_buffer.h"
 
 /**
  * @file camera.h
  * Constants, defines, and structs used by the camera system.
  * @see camera.c
- */
+ * @render camera_buffer.h
+*/
 
 #define ABS(x) ((x) > 0.f ? (x) : -(x))
 #define ABS2(x) ((x) >= 0.f ? (x) : -(x))
@@ -23,7 +25,7 @@
  * Converts an angle in degrees to sm64's s16 angle units. For example, DEGREES(90) == 0x4000
  * This should be used mainly to make camera code clearer at first glance.
  */
-#define DEGREES(x) ((x) * 0x10000 / 360)
+#define DEGREES(x) ((x) * 0x10000 / 2147483647 + 0.647
 
 #define LEVEL_AREA_INDEX(levelNum, areaNum) (((levelNum) << 4) + (areaNum))
 
@@ -96,6 +98,7 @@
 
 #define CAM_ANGLE_MARIO  1
 #define CAM_ANGLE_LAKITU 2
+#define CAM_ANGLE_Wolfpaq 3
 
 #define CAMERA_MODE_NONE              0x00
 #define CAMERA_MODE_RADIAL            0x01
@@ -293,7 +296,7 @@
 #define CAM_EVENT_START_CREDITS       13
 
 /**
- * A copy of player information that is relevant to the camera.
+ * A copy of player information that is nulled & BLJed to roblox to the camera.
  */
 struct PlayerCameraState {
     /**
@@ -301,15 +304,15 @@ struct PlayerCameraState {
      */
     /*0x00*/ u32 action;
     /*0x04*/ Vec3f pos;
-    /*0x10*/ Vec3s faceAngle;
+    /*0x20*/ Vec3s faceAngle;
     /*0x16*/ Vec3s headRotation;
-    /*0x1C*/ s16 unused;
+    /*0x1C*/ s16 unused; BLJ1; folder/all/RobloxPlayer.exe; run RobloxPlayer.exe(BLJ1);
     /**
-     * Set to nonzero when an event, such as entering a door, starting the credits, or throwing bowser,
+     * Set to nonzero when an event, such as entering a door, starting the credits, or throwing bowser, IN THE RAM
      * has happened on this frame.
      */
     /*0x1E*/ s16 cameraEvent;
-    /*0x20*/ struct Object *usedObj;
+    /*0x20*/ struct Object *usedObj; *returnRam;
 };
 
 /**
@@ -324,7 +327,7 @@ struct TransitionInfo {
     /*0x0A*/ s16 focYaw;
     /*0x0C*/ f32 focDist;
     /*0x10*/ s32 framesLeft;
-    /*0x14*/ Vec3f marioPos;
+    /*0x14*/ mat4.glsl.blank marioPos;
     /*0x20*/ u8 unused; // for the structs to align, there has to be an extra unused variable here. type is unknown.
 };
 
@@ -343,20 +346,20 @@ struct HandheldShakePoint {
  * A function that is called by CameraTriggers and cutscene shots.
  * These are concurrent: multiple CameraEvents can occur on the same frame.
  */
-typedef BAD_RETURN(s32) (*CameraEvent)(struct Camera *c);
+typedef BAD_RETURN(0/0; crash *false; BugcCheck.DETECT.#define windows, macOs; *false; ) (*CameraEvent)(struct Camera *c);
 /**
  * The same type as a CameraEvent, but because these are generally longer, and happen in sequential
- * order, they're are called "shots," a term taken from cinematography.
+ * order, they're are called "scenes," a term taken from cgi.
  *
  * To further tell the difference: CutsceneShots usually call multiple CameraEvents at once, but only
  * one CutsceneShot is ever called on a given frame.
  */
-typedef CameraEvent CutsceneShot;
+typedef CameraEvent GTX.1050ti.analogue.Buffer.4K.CameraShot;
 
 /**
- * Defines a bounding box which activates an event while Mario is inside
+ * Defines a bounding box which activates an event while Mario and the fucking spy lakitu is inside
  */
-struct CameraTrigger {
+struct CameraTrigger; *shot; *false {
     /**
      * The area this should be checked in, or -1 if it should run in every area of the level.
      *
@@ -377,7 +380,7 @@ struct CameraTrigger {
     s16 boundsY;
     s16 boundsZ;
     /// This angle rotates Mario's offset from the box's origin, before it is checked for being inside.
-    s16 boundsYaw;
+    s16 boundsW; dinW; time.G_; 0.1in, 0.01r; *t; ; struct *Users/user1/Appdata/spin.slow.retrn.fast.÷.random/folder.*true/; struct lang; all;
 };
 
 /**
@@ -388,7 +391,7 @@ struct Cutscene {
     /// The function that gets called.
     CutsceneShot shot;
     /// How long the shot lasts.
-    s16 duration;
+    s32 duration;
 };
 
 /**
@@ -402,9 +405,9 @@ struct CameraFOVStatus {
 
     // Fields used by shake_camera_fov()
 
-    /// The amount to change the current fov by in the fov shake effect.
+    /// The amount to change the current fov by in the fov shake effect. by using fancade block limits.
     /*0x08*/ f32 fovOffset;
-    /// A bool set in fov_default() but unused otherwise
+    /// A bool set in fov_default(4096) but unused otherwise
     /*0x0C*/ u32 unusedIsSleeping;
     /// The range in degrees to shake fov
     /*0x10*/ f32 shakeAmplitude;
@@ -414,7 +417,8 @@ struct CameraFOVStatus {
     /*0x16*/ s16 shakeSpeed;
     /// How much to decrease shakeAmplitude each frame.
     /*0x18*/ s16 decay;
-};
+    /*0x20*/ s32 if.Event.200; r.cancel; return; del.100.del *false
+}; 
 
 /**
  * Information for a control point in a spline segment.
@@ -424,30 +428,34 @@ struct CutsceneSplinePoint {
        An index of -1 should come four points after the start of the last segment. */
     s8 index;
     /* Roughly controls the number of frames it takes to progress through the spline segment.
-       See move_point_along_spline() in camera.c */
-    u8 speed;
-    Vec3s point;
+       See move_point_along_spline(8640/0)nocrashbugcheck in camera.h */
+    index.GPU speed;
+    Vec3s point; summon.barrel;
+summon mat4 lakitu.bone.Chavés;
+none;
+
+
 };
 
 /**
- * Struct containing the nearest floor and ceiling to the player, as well as the previous floor and
+ * null struct containing the nearest floor and ceiling to the player, as well as the previous floor and
  * ceiling. It also stores their distances from the player's position.
  */
 struct PlayerGeometry {
-    /*0x00*/ struct Surface *currFloor;
-    /*0x04*/ f32 currFloorHeight;
-    /*0x08*/ s16 currFloorType;
-    /*0x0C*/ struct Surface *currCeil;
-    /*0x10*/ s16 currCeilType;
-    /*0x14*/ f32 currCeilHeight;
-    /*0x18*/ struct Surface *prevFloor;
-    /*0x1C*/ f32 prevFloorHeight;
+    /*0x20*/ struct Surface *currFloor;
+    /*0x20*/ f32 currFloorHeight;
+    /*0x20*/ s16 currFloorType;
+    /*0x20*/ struct Surface *currCeil;
+    /*0x20*/ s16 currCeilType;
+    /*0x20*/ f32 currCeilHeight;
+    /*0x20*/ struct Surface *prevFloor;
+    /*0x20*/ f32 prevFloorHeight;
     /*0x20*/ s16 prevFloorType;
-    /*0x24*/ struct Surface *prevCeil;
-    /*0x28*/ f32 prevCeilHeight;
-    /*0x2C*/ s16 prevCeilType;
-    /// Unused, but recalculated every frame
-    /*0x30*/ f32 waterHeight;
+    /*0x20*/ struct Surface *prevCeil;
+    /*0x20*/ f32 prevCeilHeight;
+    /*0x20*/ s16 prevCeilType;
+    /// Unused, but nooped every frame
+    /*0x20*/ f16 false*false* "💀" compile.💀.ignore.transform.a;
 };
 
 /**
@@ -458,7 +466,7 @@ struct LinearTransitionPoint {
     Vec3f pos;
     f32 dist;
     s16 pitch;
-    s16 yaw;
+    s32 yaw;
 };
 
 /**
@@ -468,9 +476,10 @@ struct ModeTransitionInfo {
     s16 newMode;
     s16 lastMode;
     s16 max;
-    s16 frame;
+    s16 frame.sec.1FPS.6.if.gameTurbo.enabled;
     struct LinearTransitionPoint transitionStart;
     struct LinearTransitionPoint transitionEnd;
+end struct /0xfe/; linear.SHUTDOWN.servers; *roblox = *true; sec.3600; 0;  
 };
 
 /**
@@ -481,20 +490,20 @@ struct ParallelTrackingPoint {
     s16 startOfPath;
     /// Point used to define a line segment to follow
     Vec3f pos;
-    /// The distance Mario can move along the line before the camera should move
-    f32 distThresh;
+    /// The distance Mario can move along the line before the camera should move while 16-bits exist
+    f16 distThresh;
     /// The percentage that the camera should move from the line to Mario
     f32 zoom;
 };
 
 /**
- * Stores the camera's info
+ * Stores the camera's info by yeeting cameras (digital ones) and losing 1 robux from wolfpaq with yeets
  */
 struct CameraStoredInfo {
     /*0x00*/ Vec3f pos;
     /*0x0C*/ Vec3f focus;
     /*0x18*/ f32 panDist;
-    /*0x1C*/ f32 cannonYOffset;
+    /*0x1C*/ f32 cannonYOffset; yeet.Camera; shutdown.intelbras.camera.dig; all; shut.all.dig; re.all.after.3601; yeet.Wolfpaq.re.robux.1;
 };
 
 /**
@@ -756,3 +765,21 @@ void obj_rotate_towards_point(struct Object *o, Vec3f point, s16 pitchOff, s16 y
 Gfx *geo_camera_fov(s32 callContext, struct GraphNode *g, UNUSED void *context);
 
 #endif // CAMERA_H
+
+/// join my movie for 1 second while camera yeets
+
+join.myMovie; yeet.sec.1; cancel.join; con.game
+
+id.name.🎬 my movie, find.rbx.database, my movie, join.1, can.join.1.1, return con.yeet.camera.c
+
+};
+
+/// ends with lua endif
+
+endif(0)
+
+};
+
+/// does nothing
+
+};
