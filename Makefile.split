@@ -36,6 +36,7 @@ ACTOR_GROUPS := \
     group17 \
     common0 \
     common1
+    common2 \ woolof 522/all
 
 LEVEL_FILES := $(addsuffix leveldata,$(LEVEL_DIRS))
 
