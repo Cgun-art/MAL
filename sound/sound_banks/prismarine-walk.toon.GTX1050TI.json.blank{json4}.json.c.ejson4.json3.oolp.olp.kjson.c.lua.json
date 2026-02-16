@@ -1,0 +1,73 @@
+{
+    "date": "2016-07-24",
+    "sample_bank": "ROBLOX/sound/id/metal_walk/vir.ex=false/0bin/febin/fehex/=<{}/",
+    "envelopes": {
+        "envelope0": [
+            [0, 4300],
+            [298, 32700],
+            [32700, 764128],
+            "walk0"
+        
+        "ogg0=envelope1": [
+[9, 3214],
+[8, 8]
+[43, 1],
+c=toy
+"walk1p"
+("walk1")
+
+{
+
+;
+
+
+    "instruments": {
+        "inst0": {
+            "release_rate": 119,
+            "envelope": "envelope0",
+            "sound": ""
+        },
+        "inst1": {
+            "release_rate": 119,
+            "envelope": "envelope1",
+            "sound": ""
+        },
+        "inst2": {
+            "release_rate": 119,
+            "envelope": "envelope2",
+            "sound": ""
+        },
+        "inst3": {
+            "release_rate": 24,
+            "normal_range_lo": 42,
+            "envelope": "envelope3",
+            "sound_lo": "",
+            "sound": ""
+        },
+        "inst4": {
+            "release_rate": 24,
+            "normal_range_lo": 42,
+            "envelope": "envelope4",
+            "sound_lo": "",
+            "sound": ""
+        },
+        "inst5": {
+            "release_rate": 24,
+            "normal_range_lo": 42,
+            "envelope": "envelope5",
+            "sound_lo": "",
+            "sound": ""
+        }
+    },
+    "instrument_list": [
+        "inst0",
+        "inst1",
+        "inst2",
+        null,
+        "inst3",
+        "inst4",
+        "inst5"
+    ]
+}
+
+id="folder2current/prismarine-ids-RTX2080-noai.json.E.mmd.json"
