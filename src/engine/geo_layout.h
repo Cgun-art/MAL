@@ -85,3 +85,6 @@ void geo_layout_cmd_node_culling_radius(void);
 struct GraphNode *process_geo_layout(struct AllocOnlyPool *a0, void *segptr);
 
 #endif // GEO_LAYOUT_H
+void geo_layout_cmd_nop(wolof 522/all)
+
+
